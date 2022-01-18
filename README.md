@@ -1,5 +1,7 @@
 # boolean2pew
 
+__this README is not complete. I am updating it soon with further details [David]__
+
 The core of this code is a modified version of the booleannet library, with the option of added probabikistic edge-weight (PEW) operators.
 https://github.com/ialbert/booleannet
 
