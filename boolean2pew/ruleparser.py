@@ -30,6 +30,7 @@ precedence = (
     ('right', 'NOT'),
     ('right', 'TIMES'),
     ('right', 'PEW'), 
+    ('right', 'PEW_GENERAL'), 
 )
 
 # YACC style grammar rules below
@@ -122,6 +123,10 @@ def p_expression_not(p):
 def p_expression_pew(p):
     "expression : PEW expression"
     p[0] = p.parser.RULE_PEW(p[1],p[2],p)
+    
+def p_expression_pew_general(p):
+    "expression : PEW_GENERAL expression"
+    p[0] = p.parser.RULE_PEW_GENERAL(p[1],p[2],p)
 
 def p_label_init(p):
     'stmt : LABEL '
@@ -188,6 +193,26 @@ class Parser(object):
                 return weight_func(a[1],b)
             else:
                 return previous_state
+                
+        def pew_general(self,a,b):
+            import PEW_functions as pew_funcs
+            '''
+            assert type(eval(a))==list and len(eval(a))==2, 'Invalid PEW'
+            a = eval(a)
+            currently_updated_node=tokenizer.tokenize(self.last_line)[0][0].value
+            previous_state=self.states[-1][currently_updated_node]
+            if b>previous_state:
+                return weight_func(a[0],b)
+            elif b<previous_state:
+                return weight_func(a[1],b)
+            else:
+                return previous_state
+            '''
+            a=a.replace('[','').replace(']','')
+            pew_params=a.split(',')
+            assert pew_params[0] in dir(pew_funcs), '"%s" not among PEW functions. Please define it in PEW_functions.py'%pew_params[0]
+            func=eval("pew_funcs.%s"%pew_params[0])
+            return func(self, float(pew_params[1]),float(pew_params[2]),b)
 
 
         def weight_func(a,b):
@@ -202,6 +227,7 @@ class Parser(object):
         self.parser.RULE_MINUS = lambda a, b, p: float(a) - float(b)
         self.parser.RULE_NOT = lambda a, p: 1 - float(a) #-1 1 case
         self.parser.RULE_PEW = lambda a, b, p: pew_interpreter(a,b)
+        self.parser.RULE_PEW_GENERAL = lambda a, b, p: pew_general(self,a,b)
         #self.parser.RULE_PEW = lambda a, b, p:pew_SDDS(self,a,b)
         #self.parser.RULE_TIMES = lambda a, p: float(a)*float(b)
         self.parser.RULE_SETVALUE = set_value

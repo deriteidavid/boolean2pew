@@ -16,7 +16,7 @@ class Lexer:
     tokens = (
         'LABEL', 'ID','STATE', 'ASSIGN', 'EQUAL','TIMES',
         'AND', 'OR', 'NOT',
-        'NUMBER', 'LPAREN','RPAREN', 'COMMA', 'PEW', 'PLUS','MINUS'
+        'NUMBER', 'LPAREN','RPAREN', 'COMMA', 'PEW', 'PEW_GENERAL', 'PLUS','MINUS'
     )
 
     reserved = {
@@ -58,6 +58,11 @@ class Lexer:
         "\[(\d*\.)?\d+,(\d*\.)?\d+\]"
 
         return t	
+        
+    def t_PEW_GENERAL(self,t):
+        "\[\w{1,},(\d*\.)?\d+,(\d*\.)?\d+\]"
+ 
+        return t	   
 	
     t_LPAREN  = r'\('
     t_RPAREN  = r'\)'
