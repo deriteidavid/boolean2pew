@@ -1,10 +1,9 @@
 # boolean2pew
 
-__this README is not complete. I am updating it with further details as the publication process moves forward. If you have questions regarding the code please do not hesitate to contact me through the GitHub platform of at david.deritei@channing.harvard.edu [David]__
 
-This repository includes the modified __booleannet__ code with the Jupyter notebooks containing the code to reproduce the results of our paper titled: __Probabilistic Edge Weights Fine-Tune Boolean Network Dynamics__, currently available as a pre-print at https://www.biorxiv.org/content/10.1101/2022.01.21.477240v1 (submitted to PLoS Computational Biology).
+This repository includes the modified __booleannet__ code with the Jupyter notebooks containing the code to reproduce the results of our paper titled: __Probabilistic Edge Weights Fine-Tune Boolean Network Dynamics__, published at PLoS Computational Biology at https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1010536.
 
-The core of this code is a modified version of the booleannet library, with the option of added probabilistic edge-weight (PEW) operators.
+The core of this code is a modified version of the _booleannet_ library, with the option of added probabilistic edge-weight (PEW) operators.
 https://github.com/ialbert/booleannet
 
 # Probabilistic Edge Weights fine-tune Boolean network dynamics
@@ -16,7 +15,11 @@ Biological systems are noisy by nature. This aspect is reflected both in our exp
 # Jupyter Notebooks:
 * __Applications.ipynb__ -- contains the code to reproduce the simulations on empirical models, discussed in the Applications section of the paper
 * __Murrugarra_et_al_2012_paper_results.ipynb__ and __Poret_et_al_paper_results-Boolean_init.ipynb__ --. code to reproduce some of the other noisy models within the PEW framework
+* __Application Note__ Three more applications, where the PEW operators offer a relatively straightforward way to encode complex edge modulation, as well as examples for the usage of the general PEW operators, where the noise function is specified as well
 
 # How to run?
 
 Clone or download the repository on your machine and run notebooks in their local folder. The notebooks also serve as tutorials on how to apply the PEW freamwork for your own models. 
+
+
+__If you have questions regarding the code please do not hesitate to contact me through the GitHub platform of at david.deritei@channing.harvard.edu [David]__
