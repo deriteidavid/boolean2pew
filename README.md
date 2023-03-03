@@ -1,7 +1,7 @@
 # boolean2pew
 
 
-This repository includes the modified __booleannet__ code with the Jupyter notebooks containing the code to reproduce the results of our paper titled: __Probabilistic Edge Weights Fine-Tune Boolean Network Dynamics__, published at PLoS Computational Biology at https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1010536.
+This repository includes the modified [__booleannet__](https://github.com/ialbert/booleannet) code with the Jupyter notebooks containing the code to reproduce the results of our paper titled: __Probabilistic Edge Weights Fine-Tune Boolean Network Dynamics__, published at PLoS Computational Biology at https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1010536.
 
 The core of this code is a modified version of the _booleannet_ library, with the option of added probabilistic edge-weight (PEW) operators.
 https://github.com/ialbert/booleannet
